@@ -601,7 +601,7 @@ MonoBehaviour:
   pos2: {fileID: 4458039273204861530}
   pos3: {fileID: 2428856995794411088}
   tinyAsteroid: {fileID: 4878289355851279468, guid: 52bacc851c2d81f4b930e963d7d7b8da, type: 3}
-  explosion: {fileID: -8078245147374210246}
+  ExplosionSound: {fileID: 8807555259030959524, guid: eea86f780518f1b46a22d5250eb374b4, type: 3}
 --- !u!82 &-8078245147374210246
 AudioSource:
   m_ObjectHideFlags: 0

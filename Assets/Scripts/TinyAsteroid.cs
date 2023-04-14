@@ -5,14 +5,17 @@ using UnityEngine;
 public class TinyAsteroid : MonoBehaviour
 {
     [SerializeField] GameObject tinyAsteroid;
-    [SerializeField] AudioSource explosion;
+    [SerializeField] GameObject ExplosionSound;
+    
+
     // Start is called before the first frame update
 
      void OnTriggerEnter2D(Collider2D other) {
         
             if (other.gameObject.tag == "Bullet")
             {
-                explosion.Play();
+               GameObject newExplosionSound = Instantiate(ExplosionSound);
+                Destroy(newExplosionSound, 3);
                 Destroy(gameObject);
                 
                 UI.instance.UpdateScore(300);

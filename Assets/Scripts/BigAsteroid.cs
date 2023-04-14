@@ -9,15 +9,17 @@ public class BigAsteroid : MonoBehaviour
     [SerializeField] Transform pos3;
     [SerializeField] GameObject tinyAsteroid;
 
-    [SerializeField] AudioSource explosion;
+    [SerializeField] GameObject ExplosionSound;
     // Start is called before the first frame update
     
     void OnTriggerEnter2D(Collider2D other) {
         
             if (other.gameObject.tag == "Bullet")
             {
-                explosion.Play();
+                
                 Destroy(gameObject);
+                GameObject newExplosionSound = Instantiate(ExplosionSound);
+                Destroy(newExplosionSound, 3);
                 
                 UI.instance.UpdateScore(100);
                 Instantiate(tinyAsteroid, pos1.position, transform.rotation);

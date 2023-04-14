@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tinyAsteroid: {fileID: 4878289355851279468}
+  ExplosionSound: {fileID: 8807555259030959524, guid: eea86f780518f1b46a22d5250eb374b4, type: 3}
   explosion: {fileID: -108944879915389720}
 --- !u!114 &5432606741034578426
 MonoBehaviour:
@@ -466,7 +467,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c4a2cc7f5ee3175449279c56d4519ca0, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

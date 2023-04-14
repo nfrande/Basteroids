@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4810337636544673185}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,8 +139,11 @@ MonoBehaviour:
   particles: {fileID: 5167044007146180713}
   maxAngularVelocity: 90
   torque: 90
+  thrust: 2
   Player: {fileID: 5167044007146180688}
   explosion: {fileID: 4810337636544673185}
+  shield: {fileID: 0}
+  ExplosionSound: {fileID: 8807555259030959524, guid: eea86f780518f1b46a22d5250eb374b4, type: 3}
 --- !u!50 &5167044007146180717
 Rigidbody2D:
   serializedVersion: 4
@@ -4994,7 +4997,7 @@ MonoBehaviour:
   bullet: {fileID: 1272586145686670753, guid: 00e405d4342556e49a8d433f4c764f24, type: 3}
   bulletSpawnPoint: {fileID: 5167044006139227259}
   shotForce: 300
-  lifeTime: 1.5
+  lifeTime: 0.7
   shotPeriod: 0.2
 --- !u!82 &4810337636544673185
 AudioSource:

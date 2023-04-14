@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour
 {   
@@ -15,14 +17,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject Player;
 
     [SerializeField] AudioSource explosion;
+    [SerializeField] GameObject shield;
 
-    float shield = 3f;
+    [SerializeField] GameObject ExplosionSound;
+
+    float shieldTime = 3f;
+
+    Collider2D shieldStatus; 
 
     // Start is called before the first frame update
     void Start()
     {
+        shieldStatus = gameObject.GetComponent<Collider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         particles = gameObject.GetComponent<ParticleSystem>();
+        // shield.SetActive(false);
+        ResetShield();
     }
 
     // Update is called once per frame
@@ -57,12 +67,18 @@ public class PlayerMovement : MonoBehaviour
                 particles.Stop();
        }
 
-        shield -= Time.deltaTime;
-        if (shield < 0f && gameObject.GetComponent<Collider2D>().enabled == false)
+        shieldTime -= Time.deltaTime;
+        if (shieldTime < 0f && shieldStatus.enabled == false)
         {
-            gameObject.GetComponent<Collider2D>().enabled = true;
+            shieldStatus.enabled = true;
             Debug.Log("Shield is off!");
+            shield.SetActive(false);
         }
+
+         if (Input.GetKeyDown(KeyCode.Escape))
+       {
+        Application.Quit();
+       }
     }
     private void OnTriggerEnter2D(Collider2D other) {
        
@@ -79,13 +95,25 @@ public class PlayerMovement : MonoBehaviour
        
        // Instantiate(Player);
        Debug.Log(UI.instance.lives);
-       shield = 3f;
+       shieldTime = 3f;
        Debug.Log("Shield is on!");
+       shield.SetActive(true);
        }
        else
        {
         Destroy(gameObject);
         Debug.Log("Game Over!");
+        GameObject newExplosionSound = Instantiate(ExplosionSound);
+        Destroy(newExplosionSound, 3);
+        SceneManager.LoadScene("GameOver");
        }
+       }
+
+       public void ResetShield()
+       {
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        Debug.Log("Shield is on!");
+        shieldTime = 3f;
+        shield.SetActive(true);
        }
 }

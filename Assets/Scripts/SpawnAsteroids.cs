@@ -11,6 +11,7 @@ public class SpawnAsteroids : MonoBehaviour
     public float halfScreenHeight = 5f;
     int spawnAmount = 3;
     
+    GameObject player;
     /* void SpawnAsteroid ()
         {
             
@@ -60,6 +61,7 @@ public class SpawnAsteroids : MonoBehaviour
     void Start()
     {
         SpawnAsteroidz(2);
+        player = GameObject.FindWithTag("Player");
      /*  
        SpawnAsteroid();
        SpawnAsteroid();
@@ -77,6 +79,7 @@ public class SpawnAsteroids : MonoBehaviour
         {
             
                 SpawnAsteroidz(spawnAmount);
+                player.GetComponent<PlayerMovement>().ResetShield();
                // Debug.Log(i);
             
            spawnAmount++;

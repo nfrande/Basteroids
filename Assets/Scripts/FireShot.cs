@@ -32,4 +32,9 @@ public class FireShot : MonoBehaviour
         }
         shotTime -= Time.deltaTime;
     }
+
+    public void Testi()
+    {
+
+    }
 }
