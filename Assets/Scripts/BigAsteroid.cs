@@ -22,8 +22,11 @@ public class BigAsteroid : MonoBehaviour
                 Destroy(newExplosionSound, 3);
                 
                 UI.instance.UpdateScore(100);
+                if (pos1 != null)
                 Instantiate(tinyAsteroid, pos1.position, transform.rotation);
+                if (pos2 != null)
                 Instantiate(tinyAsteroid, pos2.position, transform.rotation);
+                if (pos3 != null)
                 Instantiate(tinyAsteroid, pos3.position, transform.rotation);
             }
         

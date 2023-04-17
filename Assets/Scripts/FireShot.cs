@@ -22,7 +22,7 @@ public class FireShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1") && shotTime <= 0f)
+        if ((Input.GetButton("Fire1") || (Input.GetButton("Fire2"))) && shotTime <= 0f)
         {
             GameObject  newBullet = Instantiate(bullet, bulletSpawnPoint.position, transform.rotation);
             Rigidbody2D rb = newBullet.GetComponent<Rigidbody2D>();
